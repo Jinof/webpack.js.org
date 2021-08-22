@@ -97,6 +97,10 @@ module.exports = function processREADME(body, options = {}) {
       /<(img\s[^>]*?src\s*=\s*['"][^'"]*?['"][^>/]*?)>(?![^<]*<\/img)/g,
       '<$1/>'
     )
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8c7e2aa96bc25f8bc2b18948d37a49247f9dc0c7
     // Replace lone h1 formats
     .replace(/<h1.*?>.+?<\/h1>/, '')
     .replace(/^# .+/m, '')

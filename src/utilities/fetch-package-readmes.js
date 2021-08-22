@@ -9,6 +9,7 @@ const yamlHeadmatter = require('./yaml-headmatter.js');
 const processReadme = require('./process-readme.js');
 
 const writeFile = promisify(fs.writeFile);
+const rename = promisify(fs.rename);
 const readFile = promisify(fs.readFile);
 const cwd = process.cwd();
 
@@ -34,7 +35,12 @@ async function main() {
       const url = `https://raw.githubusercontent.com/${repo}/master/README.md`;
       const htmlUrl = `https://github.com/${repo}`;
       const editUrl = `${htmlUrl}/edit/master/README.md`;
+<<<<<<< HEAD
       const fileName = path.resolve(outputDir, `_${packageName}.mdx`);
+=======
+      const fileName = path.resolve(outputDir, `${packageName}.md`);
+      const mdxFileName = path.resolve(outputDir, `${packageName}.mdx`);
+>>>>>>> 8c7e2aa96bc25f8bc2b18948d37a49247f9dc0c7
 
       let title = packageName;
 
@@ -69,7 +75,8 @@ async function main() {
       const content = await response.text();
       const body = processReadme(content, { source: url });
       await writeFile(fileName, headmatter + body);
-      console.log('Generated:', path.relative(cwd, fileName));
+      await rename(fileName, mdxFileName);
+      console.log('Generated:', path.relative(cwd, mdxFileName));
     }
   }
 }
