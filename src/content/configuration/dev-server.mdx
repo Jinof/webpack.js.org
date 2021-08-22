@@ -149,7 +149,30 @@ module.exports = {
 npx webpack serve --allowed-hosts all
 ```
 
+<<<<<<< HEAD
 ## `devServer.bonjour` $#devserverbonjour$
+=======
+When set to `'auto'` this option always allows `localhost`, [`host`](#devserverhost), and [`client.webSocketURL.hostname`](#websocketurl):
+
+**webpack.config.js**
+
+```javascript
+module.exports = {
+  //...
+  devServer: {
+    allowedHosts: 'auto',
+  },
+};
+```
+
+Usage via the CLI:
+
+```bash
+npx webpack serve --allowed-hosts auto
+```
+
+## `devServer.bonjour`
+>>>>>>> 5f2a01bd81600b7a1a716bd0c89cb0b1c927abc0
 
 `boolean` `object`
 
